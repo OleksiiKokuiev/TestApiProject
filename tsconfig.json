@@ -1,0 +1,15 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": false,
+    "experimentalDecorators": true
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "typings"
+  ]
+}

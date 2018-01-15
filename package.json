@@ -1,0 +1,17 @@
+{
+  "name": "testproject",
+  "version": "1.0.0",
+  "description": "TestProject\r JS-based framework for testing API",
+  "main": "test1.ts",
+  "dependencies": {
+    "request": "^2.83.0",
+    "typescript": "^2.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": []
+}
