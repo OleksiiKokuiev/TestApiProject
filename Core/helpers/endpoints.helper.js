@@ -1,6 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var endpoints = {
-    "getAllEntities": 'http://lacedeamon.spartaglobal.com/todos'
+    "getAllEntities": 'http://lacedeamon.spartaglobal.com/todos',
+    "updateEntity": 'http://lacedeamon.spartaglobal.com/todos/'
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = endpoints;

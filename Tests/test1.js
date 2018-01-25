@@ -45,11 +45,33 @@ var TestSuite1 = (function () {
             .catch(function () { return console.log("Error"); });
     };
     TestSuite1.prototype.test4 = function () {
-        //Test4: User is able to add new antity and receive 201's response
+        //Test4: User is able to add new entity and receive 201's response
         console.log("Test4: User is able to add new antity and receive 201's response");
         this.Api.addNewEntity({ title: 'Oleksii', due: '2017-07-22' })
             .then(function (statusCode) {
             statusCode === 201
+                ? console.log(statusCode + '\n' + "PASSED")
+                : console.log(statusCode + '\n' + "FAILED");
+        })
+            .catch(function () { return console.log("Error"); });
+    };
+    TestSuite1.prototype.test5 = function () {
+        //Test5: User is able to update entity and receive message "entity is updated"
+        console.log("Test5: User is able to update entity and receive message \"entity is updated\"");
+        this.Api.updateEntity(13114, { title: 'Oleksii', due: '2018-07-22' })
+            .then(function (statusCode) {
+            statusCode === 200
+                ? console.log(statusCode + '\n' + "PASSED")
+                : console.log(statusCode + '\n' + "FAILED");
+        })
+            .catch(function () { return console.log("Error"); });
+    };
+    TestSuite1.prototype.test6 = function () {
+        //Test6: User is able to delete entity and receive 204 status response
+        console.log("Test6: User is able to delete entity and receive 204 status response");
+        this.Api.deleteEntity(13086)
+            .then(function (statusCode) {
+            statusCode === 204
                 ? console.log(statusCode + '\n' + "PASSED")
                 : console.log(statusCode + '\n' + "FAILED");
         })
@@ -62,3 +84,5 @@ var test1 = new TestSuite1();
 //test1.test2();
 //test1.test3();
 //test1.test4();
+//test1.test5();
+//test1.test6();

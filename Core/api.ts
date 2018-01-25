@@ -3,9 +3,12 @@ const request = require('request');
 
 export default class Api {
 
+    //My initial attempt
     test() {
         console.log("It works!");
 }
+
+
     getAllEntities(){
         return new Promise((resolve, reject) => {
             request.get(endpoints.getAllEntities, function (error, response, body) {
@@ -15,6 +18,8 @@ export default class Api {
         });
 
     }
+
+
     getAllEntitiesStatusCode() {
         return new Promise((resolve, reject) => {
             request.get(endpoints.getAllEntities, function (error, response) {
@@ -34,7 +39,7 @@ export default class Api {
                 newObj.error = error;
                 newObj.response = response.statusCode;
                 newObj.body = body;*/
-                return resolve(response.statusCode);
+                return resolve(response);
             });
         });
     }
@@ -47,5 +52,21 @@ export default class Api {
            });
        });
    }
-}
+
+   updateEntity(entityId, newEntity) {
+       return new Promise((resolve, reject) => {
+           request.put(endpoints.updateEntity + entityId, {form: newEntity}, function (error, response) {
+               return resolve(response.statusCode);
+           });
+       });
+   }
+
+    deleteEntity(entityId) {
+        return new Promise((resolve, reject) => {
+            request.delete(endpoints.updateEntity + entityId, function (error, response, body) {
+            }
+                   return resolve(response.statusCode);
+            });
+        });
+       }
 

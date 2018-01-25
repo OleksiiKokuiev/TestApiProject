@@ -5,6 +5,7 @@ var request = require('request');
 var Api = (function () {
     function Api() {
     }
+    //My initial attempt
     Api.prototype.test = function () {
         console.log("It works!");
     };
@@ -34,7 +35,7 @@ var Api = (function () {
                  newObj.error = error;
                  newObj.response = response.statusCode;
                  newObj.body = body;*/
-                return resolve(response.statusCode);
+                return resolve(response);
             });
         });
     };
@@ -46,6 +47,21 @@ var Api = (function () {
             });
         });
     };
+    Api.prototype.updateEntity = function (entityId, newEntity) {
+        return new Promise(function (resolve, reject) {
+            request.put(endpoints_helper_1.default.updateEntity + entityId, { form: newEntity }, function (error, response) {
+                return resolve(response.statusCode);
+            });
+        });
+    };
+    Api.prototype.deleteEntity = function (entityId) {
+        return new Promise(function (resolve, reject) {
+            request.delete(endpoints_helper_1.default.updateEntity + entityId, function (error, response, body) {
+            });
+            return resolve(response.statusCode);
+        });
+    };
+    ;
     return Api;
 }());
 exports.default = Api;
